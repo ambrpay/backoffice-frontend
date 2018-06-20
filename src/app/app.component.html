@@ -1,0 +1,26 @@
+<app-header></app-header>
+<!--
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+
+    </a>
+    <div class="mr-auto ">&nbsp;</div>
+    <div>
+        <span>Language:</span>
+        <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">
+          {{ lang }}
+        </option>
+    </select>
+    </div>
+</nav>
+-->
+<app-sidemenu *ngIf="sessionService.isLoggedIn()"></app-sidemenu>
+
+<div id="wrapper" [ngClass]="{'wrapper-margin':sessionService.isLoggedIn()}">
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+    <footer class="footer">
+        ambrpay 2018
+    </footer>
+</div>

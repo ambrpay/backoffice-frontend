@@ -1,0 +1,74 @@
+﻿<a [routerLink]="['/businessuser']" class="btn btn-primary m">Back to User overview</a>
+<div class="login-container">
+    <div class="hpanel">
+        <div class="panel-body">
+            <h3>User:</h3>
+            <p *ngIf="!isEditMode()" class="m-b-md m-t-md">Register a new User </p>
+            <p *ngIf="isEditMode()" class="m-b-md m-t-md">Edit User {{id}}</p>
+            <form [formGroup]="formG" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select class="form-control m-b" name="title" formControlName="title" class="form-control" [ngClass]="{ 'error': f.title.errors }">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                    </select>
+                    <!--<input type="text" formControlName="title" class="form-control" [ngClass]="{ 'error': (f.title.dirty || f.title.touched) && f.title.errors }" /> -->
+                    <div *ngIf="(f.title.dirty || f.title.touched) && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'error': f.firstName.errors }" />
+                    <div *ngIf="(f.firstName.dirty || f.firstName.touched) && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'error': f.lastName.errors }" />
+                    <div *ngIf="(f.lastName.dirty || f.lastName.touched) && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'error':  f.email.errors }" />
+                    <div *ngIf="(f.email.dirty || f.email.touched) && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors?.email">Email not valid</div>
+                    </div>
+                </div>
+                <div class="form-group" *ngIf="!isEditMode()">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'error':  f.password.errors }" />
+                    <div *ngIf="(f.password.dirty || f.password.touched) && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="f.password.errors.strong">Must contain at least one lower, upper, special and number char</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="userType">User Role</label>
+                    <select class="form-control m-b" name="userType" formControlName="userType" class="form-control" [ngClass]="{ 'error': f.userType.errors }">
+                        <option *ngFor="let e of userTypeKeys" value="{{getUserTypeValue(e)}}" >{{e}}</option>
+                    </select>
+                    <!--<input type="text" formControlName="userType" class="form-control" [ngClass]="{ 'error': (f.userType.dirty || f.userType.touched) && f.userType.errors }" /> -->
+                    <div *ngIf="(f.userType.dirty || f.userType.touched) && f.userType.errors" class="invalid-feedback">
+                        <div *ngIf="f.userType.errors.required">Title is required</div>
+                    </div>
+                </div>
+                <p *ngIf="formG.invalid" class="invalid-feedback">Some fields in the form are not valid entries please check</p>
+                <div class="form-group">
+                    <button [disabled]="formG.invalid && !submitted" class="btn btn-primary">
+                      <div *ngIf="!isEditMode()">Save</div>
+                      <div *ngIf="isEditMode()">Update</div>
+                    </button>
+                    <a [routerLink]="['/businessuser']" class="btn btn-link">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

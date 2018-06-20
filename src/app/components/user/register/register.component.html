@@ -1,0 +1,119 @@
+﻿<div class="login-container">
+
+    <div class="hpanel">
+        <div class="panel-body">
+            <h3>Register</h3>
+            <p class="m-b-md m-t-md">Register your business and the primary owner of the business account</p>
+            <h4 class="m-b m-t">User:</h4>
+            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <select class="form-control m-b" name="title" formControlName="title" class="form-control" [ngClass]="{ 'error': f.title.errors }">
+                        <option>Mr</option>
+                        <option>Mrs</option>
+                    </select>
+                    <!--<input type="text" formControlName="title" class="form-control" [ngClass]="{ 'error': (f.title.dirty || f.title.touched) && f.title.errors }" /> -->
+                    <div *ngIf="(f.title.dirty || f.title.touched) && f.title.errors" class="invalid-feedback">
+                        <div *ngIf="f.title.errors.required">Title is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="firstName">First Name</label>
+                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'error': f.firstName.errors }" />
+                    <div *ngIf="(f.firstName.dirty || f.firstName.touched) && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'error': f.lastName.errors }" />
+                    <div *ngIf="(f.lastName.dirty || f.lastName.touched) && f.lastName.errors" class="invalid-feedback">
+                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'error':  f.email.errors }" />
+                    <div *ngIf="(f.email.dirty || f.email.touched) && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors?.email">Email not valid</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'error':  f.password.errors }" />
+                    <div *ngIf="(f.password.dirty || f.password.touched) && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        <div *ngIf="f.password.errors.strong">Must contain at least one lower, upper, special and number char</div>
+                    </div>
+                </div>
+                <h4 class="m-b m-t-xl">Business:</h4>
+
+                <div class="form-group">
+                    <label for="businessName">Name</label>
+                    <input type="text" formControlName="businessName" class="form-control" [ngClass]="{ 'error':  f.businessName.errors }" />
+                    <div *ngIf="(f.businessName.dirty || f.businessName.touched) && f.businessName.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessName.errors.required">Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessTaxcode">Taxcode</label>
+                    <input type="text" formControlName="businessTaxcode" class="form-control" [ngClass]="{ 'error':  f.businessTaxcode.errors }" />
+                    <div *ngIf="(f.businessTaxcode.dirty || f.businessTaxcode.touched) && f.businessTaxcode.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessTaxcode.errors.required">Taxcode is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessWebsite">Website</label>
+                    <input type="text" formControlName="businessWebsite" class="form-control" [ngClass]="{ 'error':  f.businessWebsite.errors }" />
+                    <div *ngIf="(f.businessWebsite.dirty || f.businessWebsite.touched) && f.businessWebsite.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessWebsite.errors.required">Website is required</div>
+                        <div *ngIf="f.businessWebsite.errors.url">Not a valid url http://www.example.com</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessPhone">Phone</label>
+                    <input type="text" formControlName="businessPhone" class="form-control" [ngClass]="{ 'error': f.businessPhone.errors }" />
+                    <div *ngIf="(f.businessPhone.dirty || f.businessPhone.touched) && f.businessPhone.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessPhone.errors.required">Phone is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessAddress">Address</label>
+                    <input type="text" formControlName="businessAddress" class="form-control" [ngClass]="{ 'error':  f.businessAddress.errors }" />
+                    <div *ngIf="(f.businessAddress.dirty || f.businessAddress.touched) && f.businessAddress.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessAddress.errors.required">Address is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessZip">Zip code</label>
+                    <input type="text" formControlName="businessZip" class="form-control" [ngClass]="{ 'error':  f.businessZip.errors }" />
+                    <div *ngIf="(f.businessZip.dirty || f.businessZip.touched) && f.businessZip.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessZip.errors.required">Zip code is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessCity">City</label>
+                    <input type="text" formControlName="businessCity" class="form-control" [ngClass]="{ 'error':  f.businessCity.errors }" />
+                    <div *ngIf="(f.businessCity.dirty || f.businessCity.touched) && f.businessCity.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessCity.errors.required">City is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="businessCountry">Country</label>
+                    <input type="text" formControlName="businessCountry" class="form-control" [ngClass]="{ 'error':  f.businessCountry.errors }" />
+                    <div *ngIf="(f.businessCountry.dirty || f.businessCountry.touched) && f.businessCountry.errors" class="invalid-feedback">
+                        <div *ngIf="f.businessCountry.errors.required">Country is required</div>
+                    </div>
+                </div>
+                <p *ngIf="registerForm.invalid" class="invalid-feedback">Some fields in the form are not valid entries please check</p>
+                <div class="form-group">
+                    <button [disabled]="registerForm.invalid && !submitted" class="btn btn-primary">Register</button>
+                    <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

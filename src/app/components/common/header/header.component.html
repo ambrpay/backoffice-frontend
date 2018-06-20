@@ -1,0 +1,16 @@
+﻿<div id="header">
+    <div id="logo">
+        <img src="assets/images/cube.svg" height="38" id="cube" /> <img src="assets/images/ambrpay.png" height="26" />
+    </div>
+    <nav role="navigation">
+        <div class="navbar-right">
+            <ul class="nav navbar-nav no-borders">
+                <li class="dropdown">
+                    <a (click)="logout()" *ngIf="sessionService.isLoggedIn()">
+                        <i class="pe-7s-upload pe-rotate-90"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

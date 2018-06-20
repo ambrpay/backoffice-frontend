@@ -1,0 +1,44 @@
+<div class="panel-heading">
+    <h1>Subscription Plans</h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-6" *ngFor="let s of subscriptionPlans">
+            <div class="hpanel hgreen fadeInRight">
+                <div class="panel-body">
+                    <span class="label label-success pull-right">ACTIVE</span>
+                    <h3><a href=""> {{s.title}} </a></h3>
+
+                    <!-- <div class="text-muted font-bold m-b-xs">California, LA</div> -->
+                    <p class="m-b m-t">
+                        {{s.description}}
+                    </p>
+                    <div class="row">
+                        <div class="col-md-8 border-right">
+                            <div class="contact-stat"><span>Price: </span> <strong> {{s.price}}  {{s.currency}}</strong> </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="contact-stat"><span>Interval: </span> every <strong>{{s.interval}}</strong> days</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="m-t m-b ">
+                        <a [routerLink]="['/subscriptionplan/edit', s.id]" class="btn btn-info " type="button"><i class="fa fa-paste"></i> Edit</a>
+                        <button class="btn btn-danger" (click)="onDelete(s.id)" type="button"><i class="fa fa-trash-o"></i> <span class="bold"> Delete</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="hpanel fadeInRight">
+                <div class="panel-body text-center">
+                    <br>
+                    <br>
+                    <a [routerLink]="['/subscriptionplan/new']" class="btn btn-success t-t-xxl t-b-xxl" type="button"><i class="fa fa-plus"></i><span class="bold">Add</span> </a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>

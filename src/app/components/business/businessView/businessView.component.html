@@ -1,0 +1,40 @@
+﻿<div class="login-container">
+    <div class="hpanel">
+        <div class="panel-body">
+            <h3>Edit Business</h3>
+            <p>
+                <b>Name:</b>
+                <br> {{b?.name}}
+            </p>
+            <p>
+                <b>Taxcode:</b>
+                <br> {{b?.taxcode}}
+            </p>
+            <p>
+                <b>Website:</b>
+                <br> {{b?.website}}
+            </p>
+            <p>
+                <b>Phone:</b>
+                <br> {{b?.phone}}
+            </p>
+            <p>
+                <b>Address:</b>
+                <br> {{b?.address}}
+            </p>
+            <p>
+                <b>Zip code:</b>
+                <br> {{b?.zip}}
+            </p>
+            <p>
+                <b>City:</b>
+                <br> {{b?.city}}
+            </p>
+            <p>
+                <b>Country:</b>
+                <br> {{b?.country}}
+            </p>
+            <a [routerLink]="['/business/edit']" class="btn btn-primary">Edit</a>
+        </div>
+    </div>
+</div>

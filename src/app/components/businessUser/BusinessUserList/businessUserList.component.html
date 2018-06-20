@@ -1,0 +1,37 @@
+<div class="panel-heading">
+    <h1>User Accounts</h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-3" *ngFor="let b of businessUsers">
+            <div class="hpanel hgreen fadeInRight" [ngClass]="b.id === currentUserId ? 'hblue' : 'hgreen'">
+                <div class="panel-body">
+                    <span class="label label-success pull-right" *ngIf="b.id !== currentUserId">ACTIVE</span>
+                    <span class="label label-info pull-right" *ngIf="b.id === currentUserId">YOU</span>
+                    <h3>{{b.title}} {{b.firstName}} {{b.lastName}}</h3>
+                    <p>Email: {{b.email}}</p>
+                    <div class="text-muted font-bold m-b-xs">Role</div>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="m-t m-b ">
+                        <a [routerLink]="['/businessuser/edit', b.id]" class="btn btn-info " type="button"><i class="fa fa-paste"></i> Edit</a>
+                        <button *ngIf="b.id !== currentUserId" class="btn btn-danger" (click)="onDelete(b.id)" type="button"><i class="fa fa-trash-o"></i> <span class="bold"> Delete</span></button>
+                    </div>
+                    <div class="m-t m-b ">
+                        <a [routerLink]="['/businessuser/changepassword', b.id]" class="btn btn-warning " type="button"><i class="fa fa-refresh"></i> Change Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="hpanel fadeInRight">
+                <div class="panel-body text-center">
+                    <br>
+                    <br>
+                    <a [routerLink]="['/businessuser/new']" class="btn btn-success t-t-xxl t-b-xxl" type="button"><i class="fa fa-plus"></i><span class="bold">Add</span> </a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
