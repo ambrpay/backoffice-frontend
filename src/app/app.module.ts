@@ -33,6 +33,15 @@ import { BusinessUserComponent } from './components/businessUser/BusinessUser/bu
 import { BusinessUsersService } from './services/businessUser.service';
 import { BusinessUserListComponent } from './components/businessUser/BusinessUserList/businessUserList.component';
 import { ChangePasswordComponent } from './components/businessUser/changePassword/changePassword.component';
+import { PayInChannelListComponent } from './components/payInChannel/payInChannelList/payInChannelList.component';
+import { PayInChannelService } from './services/payInChannel.service';
+import { PayInChannelComponent } from './components/payInChannel/payInChannel/payInChannel.component';
+import { PayInChannelBTCComponent } from './components/payInChannel/payInChannel/payInChannelBTC/payInChannelBTC.component';
+import { PayInChannelETHComponent } from './components/payInChannel/payInChannel/payInChannelETH/payInChannelETH.component';
+import { PayInChannelNEOComponent } from './components/payInChannel/payInChannel/payInChannelNeo/payInChannelNEO.component';
+import { PayInChannelCHFComponent } from './components/payInChannel/payInChannel/payInChannelCHF/payInChannelCHF.component';
+import { PayInChannelUSDComponent } from './components/payInChannel/payInChannel/payInChannelUSD/payInChannelUSD.component';
+import { PayInChannelEURComponent } from './components/payInChannel/payInChannel/payInChannelEUR/payInChannelEUR.component';
 
 
 // AoT requires an exported function for factories
@@ -54,6 +63,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     ChangePasswordComponent,
     BusinessUserListComponent,
     BusinessUserComponent,
+    PayInChannelBTCComponent,
+    PayInChannelETHComponent,
+    PayInChannelNEOComponent,
+    PayInChannelCHFComponent,
+    PayInChannelUSDComponent,
+    PayInChannelEURComponent,
+    PayInChannelListComponent,
     BusinessViewComponent,
     PaymentListComponent,
     ERC20Validator,
@@ -81,6 +97,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BusinessUserRegistrationService,
     BusinessUsersService,
     BusinesssService,
+    PayInChannelService,
     SubscriptionPlansService,
     AlertService,
     AuthGuard,

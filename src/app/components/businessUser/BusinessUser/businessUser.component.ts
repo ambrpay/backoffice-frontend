@@ -62,6 +62,10 @@ export class BusinessUserComponent implements OnInit {
       return this.mode === EditMode.Edit;
     }
 
+    hasOption(string: String) {
+      return this.mode === EditMode.Edit;
+    }
+
     getUserTypeValue(type: string) {
       return BusinessUserType[type];
     }

@@ -11,6 +11,14 @@ import { BusinessViewComponent } from './components/business/businessView/busine
 import { BusinessUserComponent } from './components/businessUser/BusinessUser/businessUser.component';
 import { BusinessUserListComponent } from './components/businessUser/BusinessUserList/businessUserList.component';
 import { ChangePasswordComponent } from './components/businessUser/changePassword/changePassword.component';
+import { PayInChannelListComponent } from './components/payInChannel/payInChannelList/payInChannelList.component';
+import { PayInChannelComponent } from './components/payInChannel/payInChannel/payInChannel.component';
+import { PayInChannelBTCComponent } from './components/payInChannel/payInChannel/payInChannelBTC/payInChannelBTC.component';
+import { PayInChannelETHComponent } from './components/payInChannel/payInChannel/payInChannelETH/payInChannelETH.component';
+import { PayInChannelNEOComponent } from './components/payInChannel/payInChannel/payInChannelNeo/payInChannelNEO.component';
+import { PayInChannelCHFComponent } from './components/payInChannel/payInChannel/payInChannelCHF/payInChannelCHF.component';
+import { PayInChannelUSDComponent } from './components/payInChannel/payInChannel/payInChannelUSD/payInChannelUSD.component';
+import { PayInChannelEURComponent } from './components/payInChannel/payInChannel/payInChannelEUR/payInChannelEUR.component';
 
 
 const routes: Routes = [
@@ -75,6 +83,71 @@ const routes: Routes = [
   {
     path: 'businessuser',
     component: BusinessUserListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/BTC',
+    component: PayInChannelBTCComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/BTC/:id',
+    component: PayInChannelBTCComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/ETH',
+    component: PayInChannelETHComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/ETH/:id',
+    component: PayInChannelETHComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/NEO',
+    component: PayInChannelNEOComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/NEO/:id',
+    component: PayInChannelNEOComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/CHF',
+    component: PayInChannelCHFComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/CHF/:id',
+    component: PayInChannelCHFComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/USD',
+    component: PayInChannelUSDComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/USD/:id',
+    component: PayInChannelUSDComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/new/EUR',
+    component: PayInChannelEURComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel/edit/EUR/:id',
+    component: PayInChannelEURComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'payinchannel',
+    component: PayInChannelListComponent,
     canActivate: [AuthGuard]
   }
 ];

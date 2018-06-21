@@ -1,0 +1,30 @@
+﻿<a [routerLink]="['/subscriptionplan']" class="btn btn-primary m">Back In Channel overview</a>
+<div class="login-container">
+    <div class="hpanel">
+        <div class="panel-body">
+            <h3>Payment Channels</h3>
+            <p *ngIf="!isEditMode()" class="m-b-md m-t-md">Register a new in channel</p>
+            <p *ngIf="isEditMode()" class="m-b-md m-t-md">Edit in channel {{id}}</p>
+            <form [formGroup]="formG" (ngSubmit)="onSubmit()">
+                <p><b>Currency:</b>CHF</p>
+                <div class="form-group">
+                    <label for="IBAN">IBAN</label>
+                    <input type="text" formControlName="IBAN" rows="10" class="form-control" [ngClass]="{ 'error': f.IBAN.errors }" />
+                    <div *ngIf="(f.IBAN.dirty || f.IBAN.touched) && f.IBAN.errors" class="invalid-feedback">
+                        <div *ngIf="f.IBAN.errors.required">Description is required</div>
+                    </div>
+                </div>
+
+                <p *ngIf="formG.invalid" class="invalid-feedback">Some fields in the form are not valid entries please check</p>
+                <div class="form-group">
+                    <button [disabled]="formG.invalid && !submitted" class="btn btn-primary">
+                      <div *ngIf="!isEditMode()">Save</div>
+                      <div *ngIf="isEditMode()">Update</div>
+                    </button>
+                    <a [routerLink]="['/payinchannel']" class="btn btn-link">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

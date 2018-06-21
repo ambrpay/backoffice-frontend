@@ -1,0 +1,49 @@
+<div class="panel-heading">
+    <h1>Subscription Plans</h1>
+</div>
+<div class="content">
+    <div class="row">
+        <div class="col-lg-6" *ngFor="let s of payInChannels">
+            <div class="hpanel hgreen fadeInRight">
+                <div class="panel-body">
+                    <span class="label label-success pull-right">ACTIVE</span>
+                    <h3><a href="">Channel: {{s.currency}} </a></h3>
+
+                    <!-- <div class="text-muted font-bold m-b-xs">California, LA</div> -->
+                    <div class="m-b m-t">
+                        <div *ngFor="let k of getKeys(s.data)">
+                            <strong>{{k}}:</strong> {{s.data[k]}}
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer contact-footer">
+                    <div class="m-t m-b ">
+
+                        <a [routerLink]="['/payinchannel/edit',s.currency, s.id]" class="btn btn-info " type="button"><i class="fa fa-paste"></i> Edit</a>
+                        <button class="btn btn-danger" (click)="onDelete(s.id)" type="button"><i class="fa fa-trash-o"></i> <span class="bold"> Delete</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6">
+            <div class="hpanel fadeInRight">
+                <div class="panel-body text-center">
+                    <br>
+                    <br>
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select class="form-control m-b" name="userType" class="form-control" (change)="setCurrency(cur.value)" #cur width="60px">
+                            <option *ngFor="let e of supportedCurrencies" [selected]="e.name == 'ETH'">{{e}}</option>
+                        </select>
+                        <div *ngIf="(cur.dirty || cur.touched) && cur.errors" class="invalid-feedback">
+                            <div *ngIf="cur.errors.required">Currency is required</div>
+                        </div>
+                    </div>
+                    <a [routerLink]="['/payinchannel/new',currency]" class="btn btn-success t-t-xxl t-b-xxl" type="button"><i class="fa fa-plus"></i><span class="bold">Add</span> </a>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
